@@ -3,6 +3,8 @@ import { FiGlobe } from 'react-icons/fi'
 import { SupportedLocale, SUPPORTED_LOCALES, SwapWidget, darkTheme, lightTheme, Theme} from '@uniswap/widgets'
 import PageButton from './PageButton'
 import 'bootstrap/dist/css/bootstrap.css';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 // import { darkTheme, lightTheme, Theme, SwapWidget } from '@uniswap/widgets'
 // import '@uniswap/widgets/fonts.css'
 
@@ -78,6 +80,14 @@ const myDarkTheme: Theme = {
   borderRadius: 0.2,
 }
 
+
+ const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+
   return (
     <div className="App">
     
@@ -93,17 +103,25 @@ const myDarkTheme: Theme = {
           ))}
         </select>*/}
       <div className="my-2 buttonContainer buttonContainerTop">
-    <PageButton name={"Swap"} isBold={true} />
+    <a href="google.com"><PageButton name={"Swap"} isBold={true} /></a>
           <PageButton name={"Pool"} />
           <PageButton name={"Vote"} />
           <PageButton name={"Charts"} /> 
+
+          <Button className="btn1" variant="primary" onClick={handleShow}>
+        Connect
+      </Button>
+
+
       </div>
 
 
       <div className="">
-    <div className="my-2 buttonContainers buttonContainerTop">
-    <Web3Connectors />
-    </div>
+    {/*<div className="my-2 buttonContainers buttonContainerTop">
+    <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button>
+    </div>*/}
 
     
     </div>
@@ -149,6 +167,30 @@ const myDarkTheme: Theme = {
     </div>
 
     </div>
+
+ <>
+      {/*<Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button>*/}
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Connect Wallet</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <div className="my-2 buttonContainers buttonContainerTop">
+    <Web3Connectors />
+    </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          
+        </Modal.Footer>
+      </Modal>
+    </>
+
 
     </div>
 
