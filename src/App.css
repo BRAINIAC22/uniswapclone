@@ -27,16 +27,26 @@ body {
   font-weight: 800;
 }
 
+.Uniswap{
+justify-content: center;
+}
+
+
 .buttonContainer {
   background-color: #fff;
   border-radius: 16px;
   display: inline-block;
 }
 
+.btn1{
+  margin-left:20px;
+}
+
 .buttonContainers {
   background-color: transparent;
   border-radius: 16px;
   display: inline-block;
+
 }
 
 .buttonContainerTop {
