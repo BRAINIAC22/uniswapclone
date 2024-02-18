@@ -1,7 +1,7 @@
 .connectors {
   display: flex;
   float:right;
-/*  flex-direction: column;*/
+ flex-direction: column;
   gap: 1rem;
   margin: 1rem;
 }
